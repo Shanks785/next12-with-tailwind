@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Modal from "./modal";
+import Image from 'next/image';
 
 export default function Cards(props) {
     const [isClicked, setIsClicked] = useState(false);
@@ -27,7 +28,8 @@ export default function Cards(props) {
                                 <h1 className="title-font text-xl font-medium text-gray-900 mb-3">{props.text}</h1>
                                 <p className="leading-relaxed mb-5">Photo booth fam kinfolk cold-pressed sriracha leggings jianbing microdosing tousled waistcoat.</p>
                                 <a className="inline-flex items-center">
-                                    <img alt="blog" src="https://dummyimage.com/103x103" className="w-8 h-8 rounded-full flex-shrink-0 object-cover object-center" />
+                                    {/*//FIXME: FIX MY IMG */}
+                                    {/* <Image width="100%" height="100%" layout="responsive" objectFit="contain" alt="blog" src="https://dummyimage.com/103x103" className="w-8 h-8 rounded-full flex-shrink-0 object-cover object-center"></Image> */}
                                     <span className="flex-grow flex flex-col pl-3">
                                         <button onClick={pressMe} className="inline-flex items-center bg-green-500 border-0 py-1 px-3 focus:outline-none hover:bg-red-200 rounded text-base mt-4 md:mt-0">{props.text}
                                             <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-4 h-4 ml-1" viewBox="0 0 24 24">
@@ -41,7 +43,7 @@ export default function Cards(props) {
                     </div>
                 </div>
             </div>
-            { isClicked && <Modal onCancel={closeModalHandler} onConfirm={closeModalHandler} /> }
+            {isClicked && <Modal onCancel={closeModalHandler} onConfirm={closeModalHandler} />}
         </section>
     )
 }
